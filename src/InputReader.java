@@ -16,7 +16,9 @@ public class InputReader {
         try {
             File file = new File(this.flag);
             Scanner reader = new Scanner(file);
+            int counter = 1;
             while (reader.hasNextLine()) { // Checks if input file is empty or all read
+                System.out.println("Query " + counter + ":");
                 String data = reader.nextLine();
                 String[] gridSize = data.split(" ");
 
@@ -31,6 +33,8 @@ public class InputReader {
                 Trie trie = new Trie(words);
                 Player player = new Player(grid, trie);
                 player.play();
+                counter = counter + 1;
+                player.print();
 
             }
             reader.close();
